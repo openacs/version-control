@@ -327,7 +327,7 @@ proc_doc vc_exec { cmd } {
     if {![file executable $cvs]} { 
 	error "cvs executable not found at configured location $cvs, please set parameter CvsPath"
     } else { 
-	return  [exec env CVS_RSH=ssh sh -c "cd [acs_root_dir] ; cvs -d [vc_fetch_root] $cmd"]
+	return  [exec env CVS_RSH=ssh sh -c "cd [acs_root_dir] ; $cvs -d [vc_fetch_root] $cmd"]
     }
 }
 
