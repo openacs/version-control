@@ -1,0 +1,124 @@
+<html> 
+<head>
+<title>Version Control Requirements</title>
+</head>
+
+<body bgcolor=white>
+
+<h2>Version Control Requirements</h2>
+
+by Ron Henderson
+
+<hr>
+
+<h3>I. Introduction</h3>
+
+<p>We are all used to working collaboratively on site development and
+to using the Concurrent Version System (CVS) for managing the code
+base as the site is programmed.  But what about modules that provide
+access to site content or software management tools?  Do we give up
+version control in this case?  Do we have to rewrite the machinery of
+a system like CVS?  Absolutely not.
+
+<h3>II. Vision Statement</h3><p>
+
+<p>The VC application provides a simple interface to CVS that can be
+used by any application to add version control capabilities to that
+application.  It also provides procedures to obtain version control
+information for any file associated with the project, e.g., to display
+additional information in the page footer or for integration with bug
+tracking systems.
+
+<h3>III. System/Application Overview</h3>
+
+<p>The VC application does not have any user pages, just a set of
+procedures that allow you to access the version control system.  Every
+procedure takes the full pathname of a file on which it is to operate.
+The public API consist of a number of simple wrappers to
+corresponding CVS commands.
+
+<h3>IV. Use-cases and User-scenarios</h3>
+
+<p>Users of the VC application will be developers who need to
+access file-level version control information from within their
+applications.  
+
+<h3>V. Related Links</h3>
+
+<ul>
+  <li> <a href=design.html>Design document</a>
+  <li> <a href=http://www.loria.fr/~molli/cvs/doc/cvs_toc.html>CVS Documentation</a>
+  <li> <a href=/vc/admin/tests/>automatic regression test script</a>
+</ul>
+
+</i>
+
+<h3>VI.A Requirements: Data Model</h3>
+
+<p>None.
+
+<h3>VI.B Requirements: User-Level Requirements</h3>
+
+<ul>
+<li>Add a file to the version-control system
+<li>Get the CVS log for a file
+<li>Get the CVS status of a file
+<li>Remove a file from the version-control system
+<li>Commit a change to CVS
+<li>Update a file from the CVS repository
+<li>Checkout a new file revision from the CVS repository
+<li>Get the location of the CVS repository for the site
+<li>Get the value of the CVS root for a file
+<li>Get the date of the last revision of a file
+<li>Get the CVS revision summary for a file
+<li>Get the CVS revision number for a file
+</ul>
+
+
+<h3>VI.C Requirements: Configurable Behavior</h3>
+
+<ul>
+<li>Specify the CVS repository and connection method
+<li>Specify the location of the CVS executable
+</ul>
+
+<h3>VI.D Requirements: Remote Repositories </h3>
+
+<ul>
+<li>Support pserver connections
+<li>Support ext connections using ssh
+</ul>
+
+<h3>VII: Implementation Notes</h3>
+
+<p>An individual query can be relatively expensive with respect to
+completion time, particularly if
+CVS has to go over the network to access information from a remote
+repository.  Therefore, all information managed by the VC application
+is cached within the server based on the modification time of
+the corresponding file.
+
+<h3>VIII. Revision History</h3>
+
+<pre> 
+$Log$
+Revision 1.4  2000/12/08 02:43:20  jfinkler
+minor change
+
+Revision 1.3  2000/12/08 02:37:38  jfinkler
+some terminological revision
+
+Revision 1.2  2000/11/21 07:08:57  ron
+corrected section labels
+
+Revision 1.1.1.1  2000/11/21 07:00:49  ron
+initial version
+
+</pre>
+
+<hr>
+
+<a href=mailto:ron@arsddigita.com>ron@arsdigita.com</a>
+
+</body>
+</html>
