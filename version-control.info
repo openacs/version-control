@@ -7,7 +7,7 @@
     <initial-install-p>f</initial-install-p>
     <singleton-p>t</singleton-p>
 
-    <version name="4.0d" url="http://www.arsdigita.com/acs-repository/download/apm/version-control-4.0a.apm">
+    <version name="4.0d" url="http://www.arsdigita.com/acs-repository/download/apm/version-control-4.0d.apm">
     <database-support>
         <database>oracle</database>
         <database>postgresql</database>
