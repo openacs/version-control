@@ -4,7 +4,7 @@ ad_library {
     version-control library
 
     @author  Ron Henderson (ron@arsdigita.com)
-    @created December 1999
+    @creation-date December 1999
     @cvs-id  $Id$
 }
 

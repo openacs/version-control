@@ -5,7 +5,7 @@ ad_page_contract {
     Acceptance tests for the version-control module
 
     @author  ron@arsdigita.com
-    @created Fri Aug  4 04:41:29 2000
+    @creation-date Fri Aug  4 04:41:29 2000
     @cvs-id  $Id$
 }
 
