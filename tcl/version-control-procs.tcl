@@ -110,7 +110,7 @@ proc_doc vc_fetch_root { { path "" } } {
 } {
 
     # Try the system default
-    set root [ad_parameter CVSROOT vc]
+    set root [ad_parameter  -package_id [apm_package_id_from_key version-control] CVSROOT]
 
     # If not defined we go to the fallback methods
     if [empty_string_p $root] {
@@ -323,7 +323,7 @@ proc_doc vc_exec { cmd } {
     starts execution from [acs_root_dir].
 
 } {
-    set cvs [ad_parameter CvsPath vc "/usr/local/bin/cvs"]
+    set cvs [ad_parameter  -package_id [apm_package_id_from_key version-control] CvsPath version-control "/usr/local/bin/cvs"]
     return  [exec /bin/env CVS_RSH=/usr/local/bin/ssh /bin/sh -c "cd [acs_root_dir] ; $cvs -d [vc_fetch_root] $cmd"]
 }
 
