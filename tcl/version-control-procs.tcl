@@ -323,8 +323,12 @@ proc_doc vc_exec { cmd } {
     starts execution from [acs_root_dir].
 
 } {
-    set cvs [ad_parameter  -package_id [apm_package_id_from_key version-control] CvsPath version-control "/usr/local/bin/cvs"]
-    return  [exec /bin/env CVS_RSH=/usr/local/bin/ssh /bin/sh -c "cd [acs_root_dir] ; $cvs -d [vc_fetch_root] $cmd"]
+    set cvs [ad_parameter -package_id [apm_package_id_from_key version-control] CvsPath version-control "/usr/local/bin/cvs"]
+    if {![file executable $cvs]} { 
+	error "cvs executable not found at configured location $cvs, please set parameter CvsPath"
+    } else { 
+	return  [exec env CVS_RSH=ssh sh -c "cd [acs_root_dir] ; cvs -d [vc_fetch_root] $cmd"]
+    }
 }
 
 proc_doc vc_add { path } {
