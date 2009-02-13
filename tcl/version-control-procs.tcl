@@ -52,7 +52,7 @@ ad_library {
 # $Id$
 # -----------------------------------------------------------------------------
 
-proc_doc vc_path_relative { path } {
+ad_proc vc_path_relative { path } {
 
     Returns the component of path relative to [acs_root_dir].
     If path does not begin with [acs_root_dir] it is returned
@@ -101,7 +101,7 @@ ad_proc vc_fetch_repository {
     return $repository
 }
 
-proc_doc vc_fetch_root { { path "" } } {
+ad_proc vc_fetch_root { { path "" } } {
 
     Fetches the CVSROOT associated with path. If path is not specified,
     looks under acs_root_dir.  This is always overridden by the CVSROOT
@@ -131,7 +131,7 @@ proc_doc vc_fetch_root { { path "" } } {
 
 # Fetches the status report for a file
 
-proc_doc vc_fetch_status { path } {
+ad_proc vc_fetch_status { path } {
 
     Returns the CVS status report for a file, caching it based on mtime
     if it exists.
@@ -165,7 +165,7 @@ proc_doc vc_fetch_status { path } {
     return $status
 }
 
-proc_doc vc_fetch_log { path } {
+ad_proc vc_fetch_log { path } {
 
     Fetches the change log for a file
 
@@ -201,7 +201,7 @@ proc_doc vc_fetch_log { path } {
 
 # Fetches the summary report for a file
 
-proc_doc vc_fetch_summary { path } {
+ad_proc vc_fetch_summary { path } {
 
     Returns the CVS summary report for a file, caching it based on
     mtime.
@@ -234,7 +234,7 @@ proc_doc vc_fetch_summary { path } {
     return $summary
 }
 
-proc_doc vc_fetch_date { path } {
+ad_proc vc_fetch_date { path } {
     
     Returns the commit time for a file, or the empty string if no
     version control information is available.
@@ -243,7 +243,7 @@ proc_doc vc_fetch_date { path } {
     return [lindex [split [vc_fetch_summary $path] "/"] 3]
 }
 
-proc_doc vc_fetch_revision { path } {
+ad_proc vc_fetch_revision { path } {
 
     Returns the revision number for a file, or the empty string if no
     version control information is available.  
@@ -317,7 +317,7 @@ proc vc_cvs_state_map {cvs_state} {
 # Wrappers for various CVS commands
 # -----------------------------------------------------------------------------
 
-proc_doc vc_exec { cmd } {
+ad_proc vc_exec { cmd } {
 
     Wrapper for exec that sets up the correct environment for CVS and
     starts execution from [acs_root_dir].
@@ -331,7 +331,7 @@ proc_doc vc_exec { cmd } {
     }
 }
 
-proc_doc vc_add { path } {
+ad_proc vc_add { path } {
 
     Add a file or a directory to the repository.
 
@@ -344,7 +344,7 @@ proc_doc vc_add { path } {
     }
 }
 
-proc_doc vc_commit { path message } {
+ad_proc vc_commit { path message } {
 
     Commit a change to the repository, along with a log message.
 
@@ -363,7 +363,7 @@ proc_doc vc_commit { path message } {
     }
 }
 
-proc_doc vc_remove { path } {
+ad_proc vc_remove { path } {
 
     Remove a file from the repository.
 
@@ -386,7 +386,7 @@ proc_doc vc_remove { path } {
     }
 }
 
-proc_doc vc_status { path } {
+ad_proc vc_status { path } {
 
     Returns the output of CVS status.
 
@@ -394,7 +394,7 @@ proc_doc vc_status { path } {
     return [vc_fetch_status $path]
 }
 
-proc_doc vc_log { path }  {
+ad_proc vc_log { path }  {
 
     Returns the output of CVS log.
 
@@ -402,7 +402,7 @@ proc_doc vc_log { path }  {
     return [vc_fetch_log $path]
 }
 
-proc_doc vc_update { path } {
+ad_proc vc_update { path } {
 
     Updates the specified file/directory
 
@@ -417,7 +417,7 @@ proc_doc vc_update { path } {
     }
 }
 
-proc_doc vc_checkout { module path } {
+ad_proc vc_checkout { module path } {
 
     Checks out a copy of the specified module to a given destination.
 
@@ -431,7 +431,7 @@ proc_doc vc_checkout { module path } {
     }
 }
 
-proc_doc vc_path_to_module { path } {
+ad_proc vc_path_to_module { path } {
 
     Converts a path name to the correct CVS module name associated with that file. 
 
@@ -454,7 +454,7 @@ proc_doc vc_path_to_module { path } {
 
 # Initialize file properties
 
-proc_doc vc_file_props_init { path } {
+ad_proc vc_file_props_init { path } {
 
     Initialize vc_file_props for $path.
 
